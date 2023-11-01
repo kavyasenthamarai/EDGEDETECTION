@@ -24,8 +24,8 @@ Display the filtered image using plot and imshow.
 
 ## Program:
 ``` 
-DEVELOPED BY : MUKESH V
-REG NO : 212222230086
+DEVELOPED BY : Kavya K
+REG NO : 212222230065
 ```
 
 # Import the packages ,Load the image, Convert to grayscale and remove noise
