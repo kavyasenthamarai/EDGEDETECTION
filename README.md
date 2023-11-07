@@ -26,8 +26,8 @@ Display the filtered image using plot and imshow.
  
 ## Program:
 ```
-NAME : JAYAKRISHNAN L B L
-REG NO : 212222230052
+NAME : KAVYA K
+REG NO : 212222230065
 ```
 
 
