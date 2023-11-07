@@ -7,127 +7,96 @@ To perform edge detection using Sobel, Laplacian, and Canny edge detectors.
 Anaconda - Python 3.7
 
 ## Algorithm:
-### Step 1:
+### Step1:
 Import the required packages for further process.
 
-### Step 2:
+
+### Step2:
 Read the image and convert the bgr image to gray scale image.
 
-### Step 3:
+### Step3:
 Use any filters for smoothing the image to reduse the noise.
 
-### Step 4:
+### Step4:
 Apply the respective filters -Sobel,Laplacian edge dectector and Canny edge dector.
 
-### Step 5:
+### Step5:
 Display the filtered image using plot and imshow.
 
+ 
 ## Program:
-``` 
-DEVELOPED BY : Kavya K
-REG NO : 212222230065
+```
+NAME : JAYAKRISHNAN L B L
+REG NO : 212222230052
 ```
 
-# Import the packages ,Load the image, Convert to grayscale and remove noise
-``` python
+
+# Import the packages
+```
 import cv2
-import matplotlib.pyplot as plt
+import numpy as np
+```
 
-img=cv2.imread("eye.jpg",0)
-gray=cv2.cvtColor(img,cv2.COLOR_GRAY2RGB)
-gray = cv2.GaussianBlur(gray,(3,3),0)
+
+# Load the image, Convert to grayscale and remove noise
 ```
-# SOBEL EDGE DETECTOR:
-# SOBEL X AXIS :
-``` python
-sobelx = cv2.Sobel(gray,cv2.CV_64F,1,0,ksize=5)
-plt.figure(figsize=(8,8))
-plt.subplot(1,2,1)
-plt.imshow(gray)
-plt.title("Original Image")
-plt.axis("off")
-plt.subplot(1,2,2)
-plt.imshow(sobelx)
-plt.title("Sobel X axis")
-plt.axis("off")
-plt.show()
+image = cv2.imread('image.jpg', cv2.IMREAD_GRAYSCALE)
 ```
-# SOBEL Y AXIS :
-``` python
-sobely = cv2.Sobel(gray,cv2.CV_64F,0,1,ksize=5)
-plt.figure(figsize=(8,8))
-plt.subplot(1,2,1)
-plt.imshow(gray)
-plt.title("Original Image")
-plt.axis("off")
-plt.subplot(1,2,2)
-plt.imshow(sobely)
-plt.title("Sobel Y axis")
-plt.axis("off")
-plt.show()
+
+
+# SOBEL EDGE DETECTOR
 ```
-# SOBEL XY AXIS :
-``` python
-sobelxy = cv2.Sobel(gray,cv2.CV_64F,1,1,ksize=5)
-plt.figure(figsize=(8,8))
-plt.subplot(1,2,1)
-plt.imshow(gray)
-plt.title("Original Image")
-plt.axis("off")
-plt.subplot(1,2,2)
-plt.imshow(sobelxy)
-plt.title("Sobel XY axis")
-plt.axis("off")
-plt.show()
+# Apply Sobel edge detection
+sobel_x = cv2.Sobel(image, cv2.CV_64F, 1, 0, ksize=5)
+sobel_y = cv2.Sobel(image, cv2.CV_64F, 0, 1, ksize=5)
+sobel = np.sqrt(sobel_x**2 + sobel_y**2)
+
+cv2.imshow('Sobel Edge Detection', sobel)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 ```
+
+
 # LAPLACIAN EDGE DETECTOR
-``` python
-lap=cv2.Laplacian(gray,cv2.CV_64F)
-plt.figure(figsize=(8,8))
-plt.subplot(1,2,1)
-plt.imshow(gray)
-plt.title("Original Image")
-plt.axis("off")
-plt.subplot(1,2,2)
-plt.imshow(lap)
-plt.title("Laplacian Edge Detector")
-plt.axis("off")
-plt.show()
 ```
+# Apply Laplacian edge detection
+laplacian = cv2.Laplacian(image, cv2.CV_64F)
+
+cv2.imshow('Laplacian Edge Detection', laplacian)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+```
+
+
 # CANNY EDGE DETECTOR
-``` python
-canny=cv2.Canny(gray,120,150)
-plt.figure(figsize=(8,8))
-plt.subplot(1,2,1)
-plt.imshow(gray)
-plt.title("Original Image")
-plt.axis("off")
-plt.subplot(1,2,2)
-plt.imshow(canny)
-plt.title("Canny Edge Detector")
-plt.axis("off")
-plt.show()
 ```
+
+# Apply Canny edge detection
+canny = cv2.Canny(image, 100, 200)  # You can adjust the threshold values as needed
+
+cv2.imshow('Canny Edge Detection', canny)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+
+
+
+
 ## Output:
 ### SOBEL EDGE DETECTOR
-### SOBEL X AXIS :
-![image](https://github.com/MukeshVelmurugan/EDGEDETECTION/assets/118707363/2dfe842a-bb24-441e-a160-62bc109ac6c1)
 
-
-### SOBEL Y AXIS :
-![image](https://github.com/MukeshVelmurugan/EDGEDETECTION/assets/118707363/c352daa3-8374-45b2-b036-cdef5a82b1a1)
-
-
-### SOBEL XY AXIS :
-![image](https://github.com/MukeshVelmurugan/EDGEDETECTION/assets/118707363/88f034bf-ee1b-4560-9976-a9303fadbe28)
+![Sobel Edge Detection_screenshot_11 10 2023](https://github.com/Jayakrishnan22003251/EDGEDETECTION/assets/120232371/22b908aa-2283-4cdb-8c83-0d5e8d104108)
 
 
 ### LAPLACIAN EDGE DETECTOR
-![image](https://github.com/MukeshVelmurugan/EDGEDETECTION/assets/118707363/35c4b177-77ea-4560-b18b-2b9b7c34e4d4)
+
+![laplacian](https://github.com/Jayakrishnan22003251/EDGEDETECTION/assets/120232371/cfcbea38-aea7-46cc-b6de-7c9383e91a26)
+
 
 
 ### CANNY EDGE DETECTOR
-![image](https://github.com/MukeshVelmurugan/EDGEDETECTION/assets/118707363/144c306e-929b-42aa-a1e7-2496baf8deec)
+![canny](https://github.com/Jayakrishnan22003251/EDGEDETECTION/assets/120232371/e155bd31-83f7-4f35-960d-5c15ace8e0b0)
 
 
 ## Result:
